@@ -14,8 +14,9 @@ import com.tujietg.gradpro.pojo.User;
 import javax.annotation.Resource;
 
 /**
- * @author wangn
- * @date 2017/5/19
+ * shiro的realm
+ * 
+ * Created by tujietg on Apr 15, 2019.
  */
 public class CustomRealm extends AuthorizingRealm {
 	@Resource

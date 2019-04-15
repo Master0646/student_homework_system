@@ -28,7 +28,7 @@
 
 	<select id="getOrderInfoEntity" resultType="OrderInfo">
 		SELECT oid, oname,
-		osubject, ostate, otime
+		osubject, ostate, otime, describtion
 		FROM orderinfo
 	</select>
 

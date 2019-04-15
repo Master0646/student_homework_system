@@ -30,10 +30,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 文件Action
- *
- * @author wangn
- * @date 2017/5/19
+ * 文件上传下载删除等模块
+ * 
+ * Created by tujietg on Apr 2019.
  */
 @Controller
 public class FileAction {

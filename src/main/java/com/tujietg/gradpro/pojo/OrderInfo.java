@@ -5,69 +5,96 @@ import java.util.Date;
 
 /**
  * 作业批次实体
- *
- * @author wangn
- * @date 2017/5/20
+ * 
+ * Created by tujietg on Apr 15, 2019.
  */
 public class OrderInfo implements Serializable {
-    /**
-     * 作业批次ID
-     */
-    private int oid;
-    /**
-     * 科目名
-     */
-    private String oname;
-    /**
-     * 作业名
-     */
-    private String osubject;
-    /**
-     * 是否允许上传
-     */
-    private Boolean ostate;
-    /**
-     * 修改时间
-     */
-    private Date otime;
+	/**
+	 * 作业批次ID
+	 */
+	private int oid;
 
-    public Boolean getOstate() {
-        return ostate;
-    }
+	/**
+	 * 老师id
+	 */
+	private String uid;
 
-    public void setOstate(Boolean ostate) {
-        this.ostate = ostate;
-    }
+	/**
+	 * 科目名
+	 */
+	private String oname;
+	/**
+	 * 作业名
+	 */
+	private String osubject;
+	/**
+	 * 是否允许上传
+	 */
+	private Boolean ostate;
 
-    public Date getOtime() {
-        return otime;
-    }
+	/**
+	 * 作业内容
+	 */
+	private String describtion;
+	/**
+	 * 修改时间
+	 */
+	private Date otime;
 
-    public void setOtime(Date otime) {
-        this.otime = otime;
-    }
+	public Boolean getOstate() {
+		return ostate;
+	}
 
-    public int getOid() {
-        return oid;
-    }
+	public void setOstate(Boolean ostate) {
+		this.ostate = ostate;
+	}
 
-    public void setOid(int oid) {
-        this.oid = oid;
-    }
+	public Date getOtime() {
+		return otime;
+	}
 
-    public String getOname() {
-        return oname;
-    }
+	public void setOtime(Date otime) {
+		this.otime = otime;
+	}
 
-    public void setOname(String oname) {
-        this.oname = oname;
-    }
+	public int getOid() {
+		return oid;
+	}
 
-    public String getOsubject() {
-        return osubject;
-    }
+	public void setOid(int oid) {
+		this.oid = oid;
+	}
 
-    public void setOsubject(String osubject) {
-        this.osubject = osubject;
-    }
+	public String getOname() {
+		return oname;
+	}
+
+	public void setOname(String oname) {
+		this.oname = oname;
+	}
+
+	public String getOsubject() {
+		return osubject;
+	}
+
+	public void setOsubject(String osubject) {
+		this.osubject = osubject;
+	}
+
+	public String getUid() {
+		return uid;
+	}
+
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+
+	public String getDescribtion() {
+		return describtion;
+	}
+
+	public void setDescribtion(String describtion) {
+		this.describtion = describtion;
+	}
+
 }

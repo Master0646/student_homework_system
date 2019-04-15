@@ -16,10 +16,9 @@ import com.tujietg.gradpro.pojo.User;
 import com.tujietg.gradpro.service.UserService;
 
 /**
- * 登陆
- *
- * @author wangn
- * @date 2017/5/19
+ * 登陆模块
+ * 
+ * Created by tujietg on Apr 2019.
  */
 @Controller
 public class Login {
@@ -54,12 +53,4 @@ public class Login {
 		}
 		return "jsp/login.jsp";
 	}
-
-	@RequestMapping("test")
-	public String test(HttpServletRequest request) {
-		String password = userService.getPasswd("111111111111");
-		System.out.println(password);
-		return "jsp/test.jsp";
-	}
-
 }

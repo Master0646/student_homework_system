@@ -79,12 +79,10 @@
 	<footer>
 		<div class="container">
 			<hr>
-			<p>
-				黑ICP备17003448号 | Copyright © 2017 <a href="http://itning.top">itning.top</a>.
-				All rights reserved.
-				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+			<!-- <p> 黑ICP备17003448号 | Copyright © 2017 <a href="http://itning.top">itning.top</a>. All rights reserved.
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
             document.write(unescape("%3Cspan id='cnzz_stat_icon_1262008292'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1262008292%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-			</p>
+        </p> -->
 		</div>
 	</footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -96,11 +94,11 @@
     $(function () {
         var height = $(window).height(); //浏览器当前窗口可视区域高度
         var section_height = $("section").outerHeight(true);
-        $("section").css("margin-top", (height/ 2) - (section_height/ 2));
+        $("section").css("margin-top", (height / 2) - (section_height / 2));
         $(window).resize(function () {
             var height = $(window).height(); //浏览器当前窗口可视区域高度
             var section_height = $("section").outerHeight(true);
-            $("section").css("margin-top", (height/ 2) - (section_height/ 2));
+            $("section").css("margin-top", (height / 2) - (section_height / 2));
         });
         var idlength = 0;
         var passwdlength = 0;

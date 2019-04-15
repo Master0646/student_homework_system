@@ -2,23 +2,22 @@ package com.tujietg.gradpro.exception;
 
 /**
  * 文件相关异常
- *
- * @author wangn
- * @date 2017/5/20
+ * 
+ * Created by tujietg on Apr 2019.
  */
 public class FileException extends Exception {
-    private String errorMessage;
+	private String errorMessage;
 
-    public FileException(String message) {
-        super(message);
-        this.errorMessage = message;
-    }
+	public FileException(String message) {
+		super(message);
+		this.errorMessage = message;
+	}
 
-    public String getErrorMessage() {
-        return errorMessage;
-    }
+	public String getErrorMessage() {
+		return errorMessage;
+	}
 
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
 }

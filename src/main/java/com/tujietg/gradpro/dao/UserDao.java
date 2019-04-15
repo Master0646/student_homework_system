@@ -6,10 +6,9 @@ import java.util.Map;
 import com.tujietg.gradpro.pojo.User;
 
 /**
- * 用户DAO
- *
- * @author wangn
- * @date 2017/5/19
+ * 用户dao
+ * 
+ * Created by tujietg on Apr 2019.
  */
 public interface UserDao {
 	/**

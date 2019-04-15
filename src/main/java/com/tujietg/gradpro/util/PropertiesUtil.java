@@ -11,6 +11,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Created by tujietg on Apr 15, 2019.
+ */
 public class PropertiesUtil {
 	public static String getUpLoadFilePath() throws Exception {
 //        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -24,6 +27,7 @@ public class PropertiesUtil {
 //        if (filepath == null || "".equals(filepath)) {
 //            throw new FileException("文件路径不正确：upLoadFilePath=" + filepath);
 //        }
+		// 地址直接写死在代码中
 		String filepath = "/Users/tujietg/java/Eclipse-WorkSpace-dxMall/shw/";
 		return filepath;
 	}
