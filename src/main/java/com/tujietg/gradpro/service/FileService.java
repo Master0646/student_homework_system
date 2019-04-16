@@ -40,6 +40,13 @@ public interface FileService {
 	Set<String> getOrderInfoEntity();
 
 	/**
+	 * 获取指定作业的desc
+	 *
+	 * @return 作业的desc
+	 */
+	String getDescByOid(Integer oid);
+
+	/**
 	 * 获取所有作业的作业名
 	 *
 	 * @return 作业名集合

@@ -21,6 +21,14 @@ public interface OrderInfoDao {
 	List<OrderInfo> getONameBySubject(String oName);
 
 	/**
+	 * 根据作业id
+	 *
+	 * @param Integer oid作业id
+	 * @return 对应的描述
+	 */
+	String getDescByOid(Integer oid);
+
+	/**
 	 * 根据作业名查找所有作业
 	 *
 	 * @param oName 作业名

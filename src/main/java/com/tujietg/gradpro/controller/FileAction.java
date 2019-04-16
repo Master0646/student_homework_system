@@ -1,5 +1,36 @@
 package com.tujietg.gradpro.controller;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.shiro.SecurityUtils;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.tujietg.gradpro.exception.FileException;
 import com.tujietg.gradpro.exception.LoginException;
 import com.tujietg.gradpro.pojo.History;
@@ -8,26 +39,6 @@ import com.tujietg.gradpro.pojo.User;
 import com.tujietg.gradpro.service.FileService;
 import com.tujietg.gradpro.service.UserService;
 import com.tujietg.gradpro.util.PropertiesUtil;
-
-import org.apache.commons.io.IOUtils;
-import org.apache.shiro.SecurityUtils;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 文件上传下载删除等模块
@@ -162,6 +173,15 @@ public class FileAction {
 			throw new FileException("获取失败：参数错误");
 		}
 		return fileService.getONameBySubject(subject);
+	}
+
+	@RequestMapping("/getDescByOid")
+	@ResponseBody
+	public String getDescByOid(Integer oid) throws Exception {
+		if (StringUtils.isEmpty(oid)) {
+			throw new FileException("获取失败：参数错误");
+		}
+		return fileService.getDescByOid(oid);
 	}
 
 	/**

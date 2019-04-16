@@ -162,4 +162,10 @@ public class FileServiceImpl implements FileService {
 		// 文件未被删除且存在
 		return !file.exists() || file.delete();
 	}
+
+	// 根据oid获取作业的描述
+	@Override
+	public String getDescByOid(Integer oid) {
+		return orderInfoDao.getDescByOid(oid);
+	}
 }

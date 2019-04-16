@@ -92,7 +92,7 @@ tr>td>p {
 							<option value="none">请选择次序...</option>
 					</select>
 					</label>
-					<p id="pdes"></p>
+					<p id="des"></p>
 				</div>
 				<div>
 					<hr>
@@ -156,7 +156,7 @@ tr>td>p {
 							<td>文件大小</td>
 							<td>操作</td>
 						</tr>
-						<c:forEach items="${userHistoryList }" var="userHistory">
+						<c:forEach items="${userHistoryList}" var="userHistory">
 							<tr id="${userHistory.hid }">
 								<td><p>${userHistory.osubject}</p></td>
 								<td><p>${userHistory.oname}</p></td>
@@ -168,7 +168,6 @@ tr>td>p {
 								<td><p>
 										<fmt:formatNumber value="${(userHistory.filesize)/1024 }"
 											maxFractionDigits="2" />
-										Kb
 									</p></td>
 								<td>
 									<button type="button" class="btn btn-danger"
@@ -202,7 +201,7 @@ tr>td>p {
 	<script src="${basePath }js/base.js"></script>
 	<script>
 		var hid = "";
-
+		var a = '';
 		function del_button(hids) {
 			$("#delalert_id").removeClass("hidden");
 			hid = hids;
@@ -233,20 +232,24 @@ tr>td>p {
 									file_oid = value.oid;
 								}
 								$("#oid_id").append(
-										"<option data-disfg="+value.describtion+" value=" + value.oid +"##"+ value.describtion+">"
-												+ value.oname + "</option>")
-								$("#pdes").append(value.describtion);
+										"<option value=" + value.oid + ">"
+												+ value.oname + "</option>");
 							});
 						});
 					});
 			$("#oid_id").change(function() {
-				var that=$(this)
-				file_oid = that.val();
-				var dis=that.data('disfg');
-				console.log(dis);
-				console.log(file_oid);
-				
+				file_oid = $(this).val();
 			});
+			$("#oid_id").change(
+					function() {
+						file_oid = $(this).val();
+						$.get("${basePath }getDescByOid?oid=" + file_oid,
+								function(data) {
+									$("#des").append(data);
+									$("#des").removeAttr();
+								});
+					});
+
 			$("#upfilebutton_id").click(
 					function() {
 						$.get("${basePath }userselect?userselect_oid="

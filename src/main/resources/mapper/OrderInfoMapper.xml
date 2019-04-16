@@ -20,6 +20,16 @@
 		AND ostate = true
 	</select>
 
+	<select id="getDescByOid" parameterType="Integer"
+		resultType="String">
+		SELECT describtion
+		FROM
+		orderinfo
+		WHERE oid = #{oid}
+		AND ostate
+		= true
+	</select>
+
 	<select id="getONameBySubjectOfAll" parameterType="String"
 		resultType="OrderInfo">
 		SELECT oid, oname, osubject, ostate, otime
