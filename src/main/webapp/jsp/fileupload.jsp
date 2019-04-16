@@ -74,7 +74,6 @@ tr>td>p {
 		</nav>
 	</header>
 	<!--/头部-->
-
 	<!--内容-->
 	<section>
 		<div class="container">
@@ -93,6 +92,7 @@ tr>td>p {
 							<option value="none">请选择次序...</option>
 					</select>
 					</label>
+					<p id="pdes"></p>
 				</div>
 				<div>
 					<hr>
@@ -233,13 +233,19 @@ tr>td>p {
 									file_oid = value.oid;
 								}
 								$("#oid_id").append(
-										"<option value=" + value.oid + ">"
-												+ value.oname + "</option>");
+										"<option data-disfg="+value.describtion+" value=" + value.oid +"##"+ value.describtion+">"
+												+ value.oname + "</option>")
+								$("#pdes").append(value.describtion);
 							});
 						});
 					});
 			$("#oid_id").change(function() {
-				file_oid = $(this).val();
+				var that=$(this)
+				file_oid = that.val();
+				var dis=that.data('disfg');
+				console.log(dis);
+				console.log(file_oid);
+				
 			});
 			$("#upfilebutton_id").click(
 					function() {

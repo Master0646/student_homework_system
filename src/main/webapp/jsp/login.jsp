@@ -65,11 +65,6 @@
 						<button class="btn btn-lg btn-primary btn-block" type="button"
 							id="submit_id">登录</button>
 					</div>
-					<div class="col-md-6">
-						<button onclick="window.open('${basePath }qqLogin','_self');"
-							type="button" class="btn btn-lg btn-primary btn-block">使用QQ账户登录
-						</button>
-					</div>
 				</div>
 			</form>
 			<p style="height: 8px"></p>

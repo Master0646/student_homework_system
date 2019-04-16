@@ -13,8 +13,9 @@
 
 	<select id="getONameBySubject" parameterType="String"
 		resultType="OrderInfo">
-		SELECT oid, oname, osubject, ostate, otime
-		FROM orderinfo
+		SELECT oid, oname, osubject, ostate, otime,describtion
+		FROM
+		orderinfo
 		WHERE osubject = #{osubject}
 		AND ostate = true
 	</select>
