@@ -1,7 +1,16 @@
 package com.tujietg.gradpro.service.Impl;
 
-import com.tujietg.gradpro.dao.HistoryDao;
-import com.tujietg.gradpro.dao.OrderInfoDao;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.tujietg.gradpro.mapper.HistoryMapper;
+import com.tujietg.gradpro.mapper.OrderInfoMapper;
 import com.tujietg.gradpro.pojo.History;
 import com.tujietg.gradpro.pojo.OrderInfo;
 import com.tujietg.gradpro.pojo.User;
@@ -10,24 +19,16 @@ import com.tujietg.gradpro.service.FileService;
 import com.tujietg.gradpro.service.UserService;
 import com.tujietg.gradpro.util.PropertiesUtil;
 
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 /**
  * Created by tujietg on Apr 2019.
  */
 @Service
 public class AdminServiceImpl implements AdminService {
 	@Resource
-	private HistoryDao historyDao;
+	private HistoryMapper historyDao;
 
 	@Resource
-	private OrderInfoDao orderInfoDao;
+	private OrderInfoMapper orderInfoDao;
 
 	@Resource
 	private UserService userService;

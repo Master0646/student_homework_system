@@ -175,7 +175,7 @@ tr>td>p {
 									<button type="button" class="btn btn-primary"
 										onclick="down_button('${userHistory.hid }')">下载</button>
 									<button type="button" class="btn btn-success"
-										onclick="view_button('${userHistory.hid }')">预览</button>
+										onclick="view_button('${userHistory.hid }')">问答</button>
 								</td>
 							</tr>
 						</c:forEach>
@@ -212,9 +212,8 @@ tr>td>p {
 		}
 
 		function view_button(hid) {
-			window.open("${basePath }CodeReview,  "_blank");
+			window.open("${basePath }questAndReply?hid=" + hid, "_blank");
 		}
-
 		$(function() {
 			var file_subject = "";
 			var file_oid = "";

@@ -1,21 +1,27 @@
 package com.tujietg.gradpro.service.Impl;
 
-import com.tujietg.gradpro.dao.HistoryDao;
-import com.tujietg.gradpro.dao.OrderInfoDao;
-import com.tujietg.gradpro.exception.FileException;
+import java.io.File;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.tujietg.gradpro.mapper.HistoryMapper;
+import com.tujietg.gradpro.mapper.OrderInfoMapper;
 import com.tujietg.gradpro.pojo.History;
 import com.tujietg.gradpro.pojo.OrderInfo;
 import com.tujietg.gradpro.pojo.User;
 import com.tujietg.gradpro.service.FileService;
 import com.tujietg.gradpro.util.PropertiesUtil;
-
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.annotation.Resource;
-import java.io.File;
-import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Created by tujietg on Apr 2019.
@@ -23,10 +29,10 @@ import java.util.stream.Collectors;
 @Service
 public class FileServiceImpl implements FileService {
 	@Resource
-	private OrderInfoDao orderInfoDao;
+	private OrderInfoMapper orderInfoDao;
 
 	@Resource
-	private HistoryDao historyDao;
+	private HistoryMapper historyDao;
 
 	@Override
 	public List<OrderInfo> getONameBySubject(String oname) {

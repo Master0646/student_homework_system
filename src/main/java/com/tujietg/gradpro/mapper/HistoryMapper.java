@@ -1,4 +1,4 @@
-package com.tujietg.gradpro.dao;
+package com.tujietg.gradpro.mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -10,7 +10,7 @@ import com.tujietg.gradpro.pojo.History;
  * 
  * Created by tujietg on Apr 15, 2019.
  */
-public interface HistoryDao {
+public interface HistoryMapper {
 	/**
 	 * 新增科目批次
 	 *

@@ -1,8 +1,7 @@
-package com.tujietg.gradpro.dao;
+package com.tujietg.gradpro.mapper;
 
 import java.util.List;
 import java.util.Map;
-
 import com.tujietg.gradpro.pojo.User;
 
 /**
@@ -10,7 +9,7 @@ import com.tujietg.gradpro.pojo.User;
  * 
  * Created by tujietg on Apr 2019.
  */
-public interface UserDao {
+public interface UserMapper {
 	/**
 	 * 根据用户名获取密码
 	 *

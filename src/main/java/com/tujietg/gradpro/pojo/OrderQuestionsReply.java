@@ -5,13 +5,15 @@ import java.util.Date;
 public class OrderQuestionsReply {
     private Integer id;
 
-    private String oid;
+    private String historyId;
 
-    private String questions;
+    private Integer identityMark;
 
-    private String reply;
+    private String statusQuestions;
 
-    private Date otime;
+    private String teacherReply;
+
+    private Date questTime;
 
     public Integer getId() {
         return id;
@@ -21,35 +23,43 @@ public class OrderQuestionsReply {
         this.id = id;
     }
 
-    public String getOid() {
-        return oid;
+    public String getHistoryId() {
+        return historyId;
     }
 
-    public void setOid(String oid) {
-        this.oid = oid == null ? null : oid.trim();
+    public void setHistoryId(String historyId) {
+        this.historyId = historyId == null ? null : historyId.trim();
     }
 
-    public String getQuestions() {
-        return questions;
+    public Integer getIdentityMark() {
+        return identityMark;
     }
 
-    public void setQuestions(String questions) {
-        this.questions = questions == null ? null : questions.trim();
+    public void setIdentityMark(Integer identityMark) {
+        this.identityMark = identityMark;
     }
 
-    public String getReply() {
-        return reply;
+    public String getStatusQuestions() {
+        return statusQuestions;
     }
 
-    public void setReply(String reply) {
-        this.reply = reply == null ? null : reply.trim();
+    public void setStatusQuestions(String statusQuestions) {
+        this.statusQuestions = statusQuestions == null ? null : statusQuestions.trim();
     }
 
-    public Date getOtime() {
-        return otime;
+    public String getTeacherReply() {
+        return teacherReply;
     }
 
-    public void setOtime(Date otime) {
-        this.otime = otime;
+    public void setTeacherReply(String teacherReply) {
+        this.teacherReply = teacherReply == null ? null : teacherReply.trim();
+    }
+
+    public Date getQuestTime() {
+        return questTime;
+    }
+
+    public void setQuestTime(Date questTime) {
+        this.questTime = questTime;
     }
 }

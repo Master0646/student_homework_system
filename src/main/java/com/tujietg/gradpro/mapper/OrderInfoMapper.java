@@ -1,4 +1,4 @@
-package com.tujietg.gradpro.dao;
+package com.tujietg.gradpro.mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +11,7 @@ import com.tujietg.gradpro.pojo.OrderInfo;
  * @author wangn
  * @date 2017/5/21
  */
-public interface OrderInfoDao {
+public interface OrderInfoMapper {
 	/**
 	 * 根据作业名查找已经开启的所有作业
 	 *

@@ -1,14 +1,15 @@
 package com.tujietg.gradpro.service.Impl;
 
-import com.tujietg.gradpro.dao.UserDao;
-import com.tujietg.gradpro.pojo.User;
-import com.tujietg.gradpro.service.UserService;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.List;
-import java.util.Map;
+import com.tujietg.gradpro.mapper.UserMapper;
+import com.tujietg.gradpro.pojo.User;
+import com.tujietg.gradpro.service.UserService;
 
 /**
  * Created by tujietg on Apr 2019.
@@ -16,7 +17,7 @@ import java.util.Map;
 @Service
 public class UserServiceImpl implements UserService {
 	@Resource
-	private UserDao userDao;
+	private UserMapper userDao;
 
 	@Override
 	public String getPasswd(String username) {

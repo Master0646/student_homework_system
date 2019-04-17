@@ -57,9 +57,12 @@
 		<property name="configLocation"
 			value="classpath:mybatis/mybatis.xml" />
 		<property name="dataSource" ref="dataSource" />
-		 <property name="mapperLocations" value="classpath:mapper/*Mapper.xml"/>
 	</bean>
 
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage"
+			value="com.tujietg.gradpro.mapper" />
+	</bean>
 
 	<!--事务管理器 -->
 	<bean id="dataSourceTransactionManager"
@@ -107,35 +110,32 @@
 	</bean>
 
 
-	 <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
-        <property name="securityManager" ref="securityManager"/>
-        <!-- 如果没有认证将要跳转的登陆地址，http可访问的url，如果不在表单认证过虑器FormAuthenticationFilter中指定此地址就为身份认证地址 -->
-        <property name="loginUrl" value="/login"/>
-        <!-- 没有权限跳转的地址 -->
-        <property name="unauthorizedUrl" value="/jsp/error.jsp"/>
-        <!-- shiro拦截器配置 -->
-        <!--<property name="filters">
-            <map>
-                <entry key="authc" value-ref="formAuthenticationFilter"/>
-            </map>
-        </property>-->
-        <property name="filterChainDefinitions">
-            <value>
-                /logout = logout
-                /qqLogin = anon
-                /qqLoginAfter = anon
-                /downFile = anon
-                /bindQQ = anon
-                /css/** = anon
-                /img/** = anon
-                /js/** = anon
-                /weblib/** = anon
-                /druid/** = anon
-                /** = user
-                /** = authc
-            </value>
-        </property>
-    </bean>
+	<bean id="shiroFilter"
+		class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<!-- 如果没有认证将要跳转的登陆地址，http可访问的url，如果不在表单认证过虑器FormAuthenticationFilter中指定此地址就为身份认证地址 -->
+		<property name="loginUrl" value="/login" />
+		<!-- 没有权限跳转的地址 -->
+		<property name="unauthorizedUrl" value="/jsp/error.jsp" />
+		<!-- shiro拦截器配置 -->
+		<!--<property name="filters"> <map> <entry key="authc" value-ref="formAuthenticationFilter"/> 
+			</map> </property> -->
+		<property name="filterChainDefinitions">
+			<value>
+				/logout = logout
+				/qqLogin = anon
+				/qqLoginAfter = anon
+				/downFile = anon
+				/css/** = anon
+				/img/** = anon
+				/js/** = anon
+				/weblib/** = anon
+				/druid/** = anon
+				/** = user
+				/** = authc
+			</value>
+		</property>
+	</bean>
 
 
 	<!-- 安全管理器 -->
