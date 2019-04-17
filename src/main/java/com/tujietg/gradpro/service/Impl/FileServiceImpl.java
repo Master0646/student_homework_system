@@ -165,7 +165,7 @@ public class FileServiceImpl implements FileService {
 
 	// 根据oid获取作业的描述
 	@Override
-	public String getDescByOid(Integer oid) {
+	public OrderInfo getDescByOid(Integer oid) {
 		return orderInfoDao.getDescByOid(oid);
 	}
 }

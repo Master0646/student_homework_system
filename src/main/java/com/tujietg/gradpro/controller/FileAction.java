@@ -177,7 +177,7 @@ public class FileAction {
 
 	@RequestMapping("/getDescByOid")
 	@ResponseBody
-	public String getDescByOid(Integer oid) throws Exception {
+	public OrderInfo getDescByOid(Integer oid) throws Exception {
 		if (StringUtils.isEmpty(oid)) {
 			throw new FileException("获取失败：参数错误");
 		}

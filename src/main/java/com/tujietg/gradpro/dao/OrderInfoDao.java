@@ -26,7 +26,7 @@ public interface OrderInfoDao {
 	 * @param Integer oid作业id
 	 * @return 对应的描述
 	 */
-	String getDescByOid(Integer oid);
+	OrderInfo getDescByOid(Integer oid);
 
 	/**
 	 * 根据作业名查找所有作业

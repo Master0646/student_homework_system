@@ -21,8 +21,8 @@
 	</select>
 
 	<select id="getDescByOid" parameterType="Integer"
-		resultType="String">
-		SELECT describtion
+		resultType="OrderInfo">
+		SELECT oid, oname, osubject, ostate, otime,describtion
 		FROM
 		orderinfo
 		WHERE oid = #{oid}

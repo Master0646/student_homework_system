@@ -44,7 +44,7 @@ public interface FileService {
 	 *
 	 * @return 作业的desc
 	 */
-	String getDescByOid(Integer oid);
+	OrderInfo getDescByOid(Integer oid);
 
 	/**
 	 * 获取所有作业的作业名

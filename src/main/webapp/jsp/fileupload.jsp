@@ -212,9 +212,7 @@ tr>td>p {
 		}
 
 		function view_button(hid) {
-			window.open(
-					"https://view.officeapps.live.com/op/view.aspx?src=${basePath }downFile?hid="
-							+ hid, "_blank");
+			window.open("${basePath }CodeReview,  "_blank");
 		}
 
 		$(function() {
@@ -240,13 +238,15 @@ tr>td>p {
 			$("#oid_id").change(function() {
 				file_oid = $(this).val();
 			});
+
 			$("#oid_id").change(
 					function() {
 						file_oid = $(this).val();
 						$.get("${basePath }getDescByOid?oid=" + file_oid,
 								function(data) {
-									$("#des").append(data);
-									$("#des").removeAttr();
+									$("#des").html('');
+									$("#des").html(data.describtion);
+									console.log(data)
 								});
 					});
 
