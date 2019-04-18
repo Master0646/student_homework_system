@@ -89,7 +89,9 @@ public class FileAction {
 		List<History> userHistoryList = fileService.getUserHistoryByUserId(user.getUid());
 		// 下拉框数据
 		model.addAttribute("orderInfoList", fileService.getOrderInfoEntity());
+		// 用户数据
 		model.addAttribute("user", user);
+		// 用户上传的历史
 		model.addAttribute("userHistoryList", userHistoryList);
 		return "jsp/fileupload.jsp";
 	}
@@ -269,7 +271,5 @@ public class FileAction {
 			}
 		}
 	}
-
-	
 
 }

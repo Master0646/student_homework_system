@@ -27,14 +27,15 @@ public class OrderQuestReplyController {
 	@Autowired
 	OrderQuestReplyService orderQuestReplyService;
 
-	@RequestMapping("questAndReply")
+	@RequestMapping("/questAndReply")
 	public String questAndReply(String hid, Model model, HttpServletRequest request) throws Exception {
 		User user = (User) SecurityUtils.getSubject().getPrincipal();
 		if (hid == null || "".equals(hid)) {
 			throw new FileException("下载失败：参数为空！");
 		}
-		System.out.println("!!!!!!!!!!!!!!!" + hid);
-		orderQuestReplyService.readOrderQuestReply(hid);
+		List<OrderQuestionsReply> list = orderQuestReplyService.readOrderQuestReply(hid);
+		model.addAttribute("user", user);
+		model.addAttribute("OrderQuestionsReplyList", list);
 		return "jsp/questAndReply.jsp";
 	}
 

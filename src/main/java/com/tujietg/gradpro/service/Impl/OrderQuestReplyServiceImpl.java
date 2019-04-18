@@ -41,8 +41,12 @@ public class OrderQuestReplyServiceImpl implements OrderQuestReplyService {
 	// 读取
 	@Override
 	public List<OrderQuestionsReply> readOrderQuestReply(String hid) {
-		orderQuestionsReplyMapper.selectByPrimaryKey(10);
-		return null;
+		if (StringUtils.isEmpty(hid)) {
+			return null;
+		}
+		OrderQuestionsReplyExample example = new OrderQuestionsReplyExample();
+		example.createCriteria().andHistoryIdEqualTo(hid);
+		return orderQuestionsReplyMapper.selectByExample(example);
 	}
 
 }
