@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>学生作业管理系统-主页</title>
+<title>学生作业管理系统-问答界面</title>
 <link rel="shortcut icon" href="${basePath }img/favicon.ico" />
 <link rel="bookmark" href="${basePath }img/favicon.ico" />
 <link href="${basePath }weblib/bootstrap/css/bootstrap.min.css"
@@ -80,8 +80,10 @@ tr>td>p {
 			<c:forEach items="${OrderQuestionsReplyList}" var="item">
 				<strong>学生提问：</strong>
 				<p>${item.statusQuestions}</p>
-				<strong>老师回答：</strong>
-				<p>${item.teacherReply}</p>
+				<c:if test="${not empty item.teacherReply}">
+					<strong>老师回答：</strong>
+					<p>${item.teacherReply}</p>
+				</c:if>
 				<hr>
 			</c:forEach>
 		</div>
@@ -101,14 +103,30 @@ tr>td>p {
 		</div>
 	</section>
 
+
+	<script src="${basePath }weblib/jquery/jquery-3.2.1.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="${basePath }weblib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${basePath }js/base.js"></script>
+	<script>
+		var text = document.getElementById("requestText").value;
+		var hid = '8a23718b675c4f36801f0b9512f5b3cd';
+
+		$(function() {
+			$("#raise_questions").click(
+					function() {
+						$.get("${basePath}addStudentQuestion?text="
+								+ $("#requestText").val() + "&hid=" + hid,
+								function(data) {
+									console.log(data);
+									if (data == 'true') {
+										alert("增加成功");
+									} else {
+										alert("系统错误");
+									}
+								});
+					});
+		});
+	</script>
 </body>
-<script src="${basePath }weblib/jquery/jquery-3.2.1.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="${basePath }weblib/bootstrap/js/bootstrap.min.js"></script>
-<script src="${basePath }js/base.js"></script>
-<script>
-	var text = document.getElementById("requestText").value;
-	$("raise_questions").click(function() {
-		
-	});
-</script>
+</html>

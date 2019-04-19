@@ -1,5 +1,6 @@
 package com.tujietg.gradpro.service.Impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +23,22 @@ public class OrderQuestReplyServiceImpl implements OrderQuestReplyService {
 	@Autowired
 	OrderQuestionsReplyMapper orderQuestionsReplyMapper;
 
-	// 增加
+	// 增加学生提问
 	@Override
-	public boolean addOrderQuestReply(OrderQuestionsReply orderQuestionsReply) {
-		if (StringUtils.isEmpty(orderQuestionsReply)) {
-			return false;
+	public String addOrderQuestReply(String text, String hid) {
+		if (StringUtils.isEmpty(text) || StringUtils.isEmpty(hid)) {
+			return "false";
 		}
-		orderQuestionsReplyMapper.insert(orderQuestionsReply);
-		return false;
+		OrderQuestionsReply orderQuestionsReply = new OrderQuestionsReply();
+		orderQuestionsReply.setHistoryId(hid);
+		orderQuestionsReply.setStatusQuestions(text);
+		orderQuestionsReply.setQuestTime(new Date());
+		int total = orderQuestionsReplyMapper.insert(orderQuestionsReply);
+		if (total == 1) {
+			return "true";
+		} else {
+			return "false";
+		}
 	}
 
 	// 删除

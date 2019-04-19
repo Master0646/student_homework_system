@@ -10,7 +10,7 @@ import com.tujietg.gradpro.pojo.OrderQuestionsReply;
  */
 public interface OrderQuestReplyService {
 	// 增加
-	public boolean addOrderQuestReply(OrderQuestionsReply orderQuestionsReply);
+	public String addOrderQuestReply(String text, String hid);
 
 	// 删除
 	public void deleteOrderQuestReply(Integer id);

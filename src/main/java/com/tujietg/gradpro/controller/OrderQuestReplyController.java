@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tujietg.gradpro.exception.FileException;
 import com.tujietg.gradpro.pojo.OrderQuestionsReply;
@@ -35,14 +36,18 @@ public class OrderQuestReplyController {
 		}
 		List<OrderQuestionsReply> list = orderQuestReplyService.readOrderQuestReply(hid);
 		model.addAttribute("user", user);
+		model.addAttribute("hid", hid);
 		model.addAttribute("OrderQuestionsReplyList", list);
 		return "jsp/questAndReply.jsp";
 	}
 
 	// 增加
-	@RequestMapping("/addOrderQuestAndReply")
-	public boolean addOrderQuestAndReply(OrderQuestionsReply orderQuestionsReply) {
-		return orderQuestReplyService.addOrderQuestReply(orderQuestionsReply);
+	@RequestMapping("/addStudentQuestion")
+	@ResponseBody
+	public String addOrderQuestAndReply(HttpServletRequest request) {
+		String text = request.getParameter("text");
+		String hid = request.getParameter("hid");
+		return orderQuestReplyService.addOrderQuestReply(text, hid);
 	}
 
 	// 删除
