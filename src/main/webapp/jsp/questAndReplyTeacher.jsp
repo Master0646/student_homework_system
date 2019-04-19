@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>学生作业管理系统-问答界面</title>
+<title>作业管理系统-问答界面</title>
 <link rel="shortcut icon" href="${basePath }img/favicon.ico" />
 <link rel="bookmark" href="${basePath }img/favicon.ico" />
 <link href="${basePath }weblib/bootstrap/css/bootstrap.min.css"
@@ -84,23 +84,34 @@ tr>td>p {
 					<strong>老师回答：</strong>
 					<p>${item.teacherReply}</p>
 				</c:if>
+
+				<c:if
+					test="${item.teacherReply eq null && not empty item.statusQuestions }">
+					<textarea rows="8" cols="100" id="requestText">
+					</textarea>
+					<input hidden id="replyId">${item.id}</input>
+					<br>
+					<button type="button" id="teacher_reply" class="btn btn-primary"
+						data-toggle="modal">提交答案</button>
+				</c:if>
+
 				<hr>
 			</c:forEach>
 		</div>
 	</div>
 	<!--历史-->
 	<section>
-		<div class="container">
+		<!-- <div class="container">
 			<div class="history">
-				<h3>学生提问</h3>
+				<h3>老师解答:</h3>
 				<hr />
 				<textarea rows="8" cols="100" id="requestText">
 				</textarea>
 				<br>
 				<button type="button" id="raise_questions" class="btn btn-primary"
-					data-toggle="modal">提交问题</button>
+					data-toggle="modal">提交答案</button>
 			</div>
-		</div>
+		</div> -->
 	</section>
 
 
@@ -110,13 +121,16 @@ tr>td>p {
 	<script src="${basePath }js/base.js"></script>
 	<script>
 		var text = document.getElementById("requestText").value;
-		var hid = "${hid}";
-		console.log(hid);
+		var replyId = document.getElementById("replyId").value;
+		var hid = $
+		{
+			hid
+		};
 		$(function() {
-			$("#raise_questions").click(
+			$("#teacher_reply").click(
 					function() {
-						$.get("${basePath}addStudentQuestion?text="
-								+ $("#requestText").val() + "&hid=" + hid,
+						$.get("${basePath}addTeacherReply?text="
+								+ $("#requestText").val() + "&id=" + 1004,
 								function(data) {
 									console.log(data);
 									if (data == 'true') {

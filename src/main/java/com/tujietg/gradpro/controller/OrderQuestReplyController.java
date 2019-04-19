@@ -32,13 +32,26 @@ public class OrderQuestReplyController {
 	public String questAndReply(String hid, Model model, HttpServletRequest request) throws Exception {
 		User user = (User) SecurityUtils.getSubject().getPrincipal();
 		if (hid == null || "".equals(hid)) {
-			throw new FileException("下载失败：参数为空！");
+			throw new FileException("参数为空！");
 		}
 		List<OrderQuestionsReply> list = orderQuestReplyService.readOrderQuestReply(hid);
 		model.addAttribute("user", user);
 		model.addAttribute("hid", hid);
 		model.addAttribute("OrderQuestionsReplyList", list);
 		return "jsp/questAndReply.jsp";
+	}
+
+	@RequestMapping("/questAndReplyTeacher")
+	public String questAndReplyTeacher(String hid, Model model, HttpServletRequest request) throws Exception {
+		User user = (User) SecurityUtils.getSubject().getPrincipal();
+		if (hid == null || "".equals(hid)) {
+			throw new FileException("参数为空！");
+		}
+		List<OrderQuestionsReply> list = orderQuestReplyService.readOrderQuestReply(hid);
+		model.addAttribute("user", user);
+		model.addAttribute("hid", hid);
+		model.addAttribute("OrderQuestionsReplyList", list);
+		return "jsp/questAndReplyTeacher.jsp";
 	}
 
 	// 增加
@@ -48,6 +61,16 @@ public class OrderQuestReplyController {
 		String text = request.getParameter("text");
 		String hid = request.getParameter("hid");
 		return orderQuestReplyService.addOrderQuestReply(text, hid);
+	}
+
+	// 增加
+	@RequestMapping("/addTeacherReply")
+	@ResponseBody
+	public String addTeacherReply(HttpServletRequest request) {
+		String text = request.getParameter("text");
+		// 问题所对应的id
+		String id = request.getParameter("id");
+		return orderQuestReplyService.addTeacherReply(text, Integer.valueOf(id));
 	}
 
 	// 删除

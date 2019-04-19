@@ -58,4 +58,16 @@ public class OrderQuestReplyServiceImpl implements OrderQuestReplyService {
 		return orderQuestionsReplyMapper.selectByExample(example);
 	}
 
+	// 增加老师回答
+	@Override
+	public String addTeacherReply(String text, Integer id) {
+		if (StringUtils.isEmpty(text) || StringUtils.isEmpty(id)) {
+			return "false";
+		}
+		OrderQuestionsReply orderQuestionsReply = orderQuestionsReplyMapper.selectByPrimaryKey(id);
+		orderQuestionsReply.setTeacherReply(text);
+		orderQuestionsReplyMapper.updateByPrimaryKey(orderQuestionsReply);
+		return "true";
+	}
+
 }
