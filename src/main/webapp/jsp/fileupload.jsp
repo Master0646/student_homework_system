@@ -152,6 +152,7 @@ tr>td>p {
 							<td>科目</td>
 							<td>次序</td>
 							<td>文件类型</td>
+							<td>分数</td>
 							<td>上传时间</td>
 							<td>文件大小</td>
 							<td>操作</td>
@@ -161,6 +162,7 @@ tr>td>p {
 								<td><p>${userHistory.osubject}</p></td>
 								<td><p>${userHistory.oname}</p></td>
 								<td><p>${userHistory.filepath}</p></td>
+								<td><p>${userHistory.fraction}</p></td>
 								<td><p>
 										<fmt:formatDate value="${userHistory.uptime }"
 											pattern="yyyy年MM月dd日 HH:mm:ss" />

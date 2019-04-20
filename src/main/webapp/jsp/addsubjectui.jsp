@@ -33,6 +33,22 @@
 		</div>
 	</div>
 	<div class="form-group">
+		<label for="desc" class="col-sm-2 control-label">题目：</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="desc"
+				placeholder="请输入作业题目...">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="answer" class="col-sm-2 control-label">答案：</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="desc"
+				placeholder="请输入标准答案...">
+		</div>
+	</div>
+
+	<div class="form-group">
 		<label for="oname" class="col-sm-2 control-label">状态：</label>
 		<div class="col-sm-10">
 			<label> <select class="form-control" id="ostate">
