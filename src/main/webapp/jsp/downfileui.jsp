@@ -17,6 +17,7 @@
 			<td>学生学号</td>
 			<td>学生姓名</td>
 			<td>是否上传</td>
+			<td>作业成绩</td>
 			<td>上传时间</td>
 			<td>文件大小</td>
 			<td>操作</td>
@@ -26,6 +27,9 @@
 				<td><p>${filelist.osubject }</p></td>
 				<td><p>${filelist.oname }</p></td>
 				<td><p>${filelist.uptime==null?"未上传":"已上传" }</p></td>
+				<td><input
+					value="${filelist.fraction == null? 0 :filelist.fraction }"
+					id="fraction_input"></td>
 				<td><p>
 						<fmt:formatDate value="${filelist.uptime }"
 							pattern="yyyy年MM月dd日 HH:mm:ss" />
@@ -46,6 +50,10 @@
 					<button type="button" class="btn btn-primary"
 						onclick="view('${filelist.hid }')"
 						<c:if test="${filelist.uptime==null}">disabled='disabled'</c:if>>问答
+					</button>
+					<button type="button" class="btn btn-primary"
+						onclick="view('${filelist.hid }')"
+						<c:if test="${filelist.uptime==null}">disabled='disabled'</c:if>>修改成绩
 					</button>
 				</td>
 			</tr>

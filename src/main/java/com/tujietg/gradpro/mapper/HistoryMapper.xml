@@ -59,6 +59,7 @@
 		= #{type},
 		filepath = #{filepath},
 		uptime = #{uptime},
+		fraction=#{fraction}
 		filesize =
 		#{filesize}
 		WHERE hid =
@@ -67,7 +68,8 @@
 
 	<select id="findFileListByHoid" parameterType="int"
 		resultType="History">
-		SELECT hid, huid, hoid, type, filepath, uptime, filesize
+		SELECT hid, huid, hoid, type, filepath, uptime,
+		filesize,fraction
 		FROM history
 		WHERE hoid = #{hoid}
 	</select>

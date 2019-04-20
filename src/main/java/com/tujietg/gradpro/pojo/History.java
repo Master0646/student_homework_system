@@ -31,6 +31,10 @@ public class History implements Serializable {
 	 */
 	private String filepath;
 	/**
+	 * 分数
+	 */
+	private Integer fraction;
+	/**
 	 * 上传时间
 	 */
 	private Date uptime;
@@ -46,6 +50,14 @@ public class History implements Serializable {
 	 * 科目名
 	 */
 	private String oname;
+
+	public Integer getFraction() {
+		return fraction;
+	}
+
+	public void setFraction(Integer fraction) {
+		this.fraction = fraction;
+	}
 
 	public String getOsubject() {
 		return osubject;

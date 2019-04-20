@@ -27,6 +27,11 @@ public interface HistoryMapper {
 	List<History> getUpListByUID(String huid);
 
 	/**
+	 * 更新分数
+	 */
+	int updateFractionByHid(History history);
+
+	/**
 	 * 根据ID删除上传历史
 	 *
 	 * @param delHid 历史ID

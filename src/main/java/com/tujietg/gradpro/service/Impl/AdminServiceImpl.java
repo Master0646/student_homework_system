@@ -80,6 +80,7 @@ public class AdminServiceImpl implements AdminService {
 				// 如果数据库中已上传过文件的用户ID和用户列表中的ID相等
 				if (user.getUid().equals(alluser.getUid())) {
 					// 将数据库中信息存入历史记录实体
+					history.setFraction(historys.getFraction());
 					history.setFilesize(historys.getFilesize());
 					history.setHid(historys.getHid());
 					history.setUptime(historys.getUptime());
