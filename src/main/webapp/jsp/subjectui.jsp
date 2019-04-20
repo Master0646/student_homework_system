@@ -32,8 +32,8 @@
 				<td>
 					<button type="button" class="btn btn-info btn-primary"
 						onclick="changeState(${allorderinfo.oid },${allorderinfo.ostate})">${allorderinfo.ostate?"禁用":"启用" }</button>
-					<button type="button" class="btn btn-info btn-warning"
-						onclick="edit(${allorderinfo.oid })">编辑</button>
+					<%-- <button type="button" class="btn btn-info btn-warning"
+						onclick="edit(${allorderinfo.oid })">编辑</button> --%>
 					<button type="button" class="btn btn-info btn-danger"
 						onclick="del(${allorderinfo.oid })">删除</button>
 				</td>

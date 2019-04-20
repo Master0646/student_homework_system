@@ -172,11 +172,14 @@ tr>td>p {
 	<script src="${basePath }js/base.js"></script>
 	<script>
 		function add() {
+			var desc = $("#describtion").val();
+			var ans = $("#answer").val();
 			var osubject = $("#osubject").val();
 			var oname = $("#oname").val();
 			var ostate = $("#ostate").val();
 			$.get("${basePath }addOrderInfo?osubject=" + osubject + "&oname="
-					+ oname + "&ostate=" + ostate, function(data) {
+					+ oname + "&ostate=" + ostate + "&describtion=" + desc
+					+ "&answer=" + ans, function(data) {
 				if (data) {
 					$('#addmodel').modal('hide');
 					$("#loadsubject").load("${basePath}subjectui");

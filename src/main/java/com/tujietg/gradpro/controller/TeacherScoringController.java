@@ -1,5 +1,7 @@
 package com.tujietg.gradpro.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +21,11 @@ public class TeacherScoringController {
 
 	@RequestMapping("/addTeacherScoring")
 	@ResponseBody
-	public String teacherScoring(String hid, Integer fraction) {
-		return teacherScoringService.teacherScoring(hid, fraction);
+	public String teacherScoring(HttpServletRequest request) {
+		System.out.println("11111111111111");
+		String fraction = request.getParameter("fraction");
+		String hid = request.getParameter("hid");
+		return teacherScoringService.teacherScoring(hid, Integer.valueOf(fraction));
 	}
 
 }

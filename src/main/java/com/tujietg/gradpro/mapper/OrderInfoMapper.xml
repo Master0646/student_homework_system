@@ -52,9 +52,10 @@
 
 	<insert id="addOrderInfo" parameterType="OrderInfo">
 		INSERT INTO
-		orderinfo(oid, oname, osubject, ostate, otime)
+		orderinfo(oid, oname, osubject, ostate, otime,describtion,answer)
 		VALUES (#{oid},
-		#{oname}, #{osubject}, #{ostate}, #{otime})
+		#{oname}, #{osubject}, #{ostate},
+		#{otime},#{describtion},#{answer})
 	</insert>
 	<update id="changeKeyByOID" parameterType="map">
 		UPDATE orderinfo

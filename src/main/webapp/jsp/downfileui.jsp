@@ -51,16 +51,18 @@
 						onclick="view('${filelist.hid }')"
 						<c:if test="${filelist.uptime==null}">disabled='disabled'</c:if>>问答
 					</button>
-					<button type="button" class="btn btn-primary"
-						onclick="view('${filelist.hid }')"
-						<c:if test="${filelist.uptime==null}">disabled='disabled'</c:if>>修改成绩
-					</button>
+					<button type="button" id="changefro" class="btn btn-warning"
+						data-toggle="modal">修改成绩</button>
 				</td>
+				<input value="${filelist.hid }" id="hidValue" type="hidden">
 			</tr>
 		</c:forEach>
 	</table>
 </div>
 <script>
+
+	var hidValue = document.getElementById("hidValue").value;
+	
     function down(hid) {
         window.open("${basePath }downFile?hid=" + hid, "_blank");
     }
@@ -71,7 +73,23 @@
     function view(hid) {
 		window.open("${basePath }questAndReplyTeacher?hid=" + hid, "_blank");
 	}
-
+    
+    $(function() {
+		$("#changefro").click(
+				function() {
+					$.get("${basePath}addTeacherScoring?fraction="
+							+ $("#changefro").val() + "&hid=" + hidValue,
+							function(data) {
+								console.log(data);
+								if (data == 'true') {
+									alert("增加成功");
+								} else {
+									alert("系统错误");
+								}
+							});
+				});
+	});
+    
     $(function () {
         var data = [];
         <c:forEach items="${fileListByHoid }" var="file">

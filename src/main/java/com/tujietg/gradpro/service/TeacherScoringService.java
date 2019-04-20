@@ -10,5 +10,4 @@ public interface TeacherScoringService {
 	public String teacherScoring(String hid, Integer fraction);
 
 	// 根据id查询分数
-	public Integer getFractionByHid(String hid);
 }

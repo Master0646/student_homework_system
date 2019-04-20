@@ -208,6 +208,12 @@ public class AdminAction {
 		if (orderInfo.getOname() == null) {
 			return false;
 		}
+		if (orderInfo.getAnswer() == null) {
+			return false;
+		}
+		if (orderInfo.getDescribtion() == null) {
+			return false;
+		}
 		if (orderInfo.getOstate() == null) {
 			return false;
 		}

@@ -36,10 +36,23 @@ public class OrderInfo implements Serializable {
 	 * 作业内容
 	 */
 	private String describtion;
+
+	/**
+	 * 作业解答
+	 */
+	private String answer;
 	/**
 	 * 修改时间
 	 */
 	private Date otime;
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 
 	public Boolean getOstate() {
 		return ostate;
