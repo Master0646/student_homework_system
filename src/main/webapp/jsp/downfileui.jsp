@@ -78,7 +78,7 @@
 		$("#changefro").click(
 				function() {
 					$.get("${basePath}addTeacherScoring?fraction="
-							+ $("#changefro").val() + "&hid=" + hidValue,
+							+ $("#fraction_input").val() + "&hid=" + hidValue,
 							function(data) {
 								console.log(data);
 								if (data == 'true') {
