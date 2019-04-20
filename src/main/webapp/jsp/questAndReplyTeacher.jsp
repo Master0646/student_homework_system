@@ -89,7 +89,7 @@ tr>td>p {
 					test="${item.teacherReply eq null && not empty item.statusQuestions }">
 					<textarea rows="8" cols="100" id="requestText">
 					</textarea>
-					<input hidden id="replyId">${item.id}</input>
+					<input type="hidden" id="replyId">${item.id}</input>
 					<br>
 					<button type="button" id="teacher_reply" class="btn btn-primary"
 						data-toggle="modal">提交答案</button>
@@ -130,7 +130,7 @@ tr>td>p {
 			$("#teacher_reply").click(
 					function() {
 						$.get("${basePath}addTeacherReply?text="
-								+ $("#requestText").val() + "&id=" + 1004,
+								+ $("#requestText").val() + "&id=" + replyId,
 								function(data) {
 									console.log(data);
 									if (data == 'true') {
