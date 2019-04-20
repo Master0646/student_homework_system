@@ -22,7 +22,6 @@ public class TeacherScoringController {
 	@RequestMapping("/addTeacherScoring")
 	@ResponseBody
 	public String teacherScoring(HttpServletRequest request) {
-		System.out.println("11111111111111");
 		String fraction = request.getParameter("fraction");
 		String hid = request.getParameter("hid");
 		return teacherScoringService.teacherScoring(hid, Integer.valueOf(fraction));

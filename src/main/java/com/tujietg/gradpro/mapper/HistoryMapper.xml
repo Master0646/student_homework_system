@@ -59,9 +59,19 @@
 		= #{type},
 		filepath = #{filepath},
 		uptime = #{uptime},
-		fraction=#{fraction}
+		fraction =
+		#{fraction}
 		filesize =
 		#{filesize}
+		WHERE hid =
+		#{hid}
+	</update>
+
+	<update id="upHistoryDataByHid" parameterType="History">
+		UPDATE history
+		SET
+		fraction =
+		#{fraction}
 		WHERE hid =
 		#{hid}
 	</update>

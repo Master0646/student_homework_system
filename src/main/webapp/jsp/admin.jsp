@@ -189,6 +189,7 @@ tr>td>p {
 			});
 		}
 
+		
 		function changeState(oid, ostate) {
 			var value = true;
 			if (ostate) {

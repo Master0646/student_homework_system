@@ -64,6 +64,13 @@ public interface HistoryMapper {
 	void upHistoryData(History history);
 
 	/**
+	 * 更新上传历史根据id
+	 *
+	 * @param history {@link History}
+	 */
+	void upHistoryDataByHid(History history);
+
+	/**
 	 * 根据作业批次ID获取上传文件历史
 	 *
 	 * @param hoid ID

@@ -28,7 +28,7 @@ public class TeacherScoringServiceImpl implements TeacherScoringService {
 			return "false";
 		}
 		history.setFraction(fraction);
-		historyMapper.upHistoryData(history);
+		historyMapper.upHistoryDataByHid(history);
 		return "true";
 	}
 

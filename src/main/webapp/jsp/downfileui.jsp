@@ -27,9 +27,9 @@
 				<td><p>${filelist.osubject }</p></td>
 				<td><p>${filelist.oname }</p></td>
 				<td><p>${filelist.uptime==null?"未上传":"已上传" }</p></td>
-				<td><input
-					value="${filelist.fraction == null? 0 :filelist.fraction }"
-					id="fraction_input"></td>
+				<td><p>机器打分：${filelist.fraction == null? 0 :filelist.fraction }</p>
+					修改分数：<input id="test" name="test" type="text" /></td>
+				</td>
 				<td><p>
 						<fmt:formatDate value="${filelist.uptime }"
 							pattern="yyyy年MM月dd日 HH:mm:ss" />
@@ -51,17 +51,16 @@
 						onclick="view('${filelist.hid }')"
 						<c:if test="${filelist.uptime==null}">disabled='disabled'</c:if>>问答
 					</button>
-					<button type="button" id="changefro" class="btn btn-warning"
-						data-toggle="modal">修改成绩</button>
+					<button type="button" class="btn btn-primary"
+						onclick="changefro('${filelist.hid}')"
+						<c:if test="${filelist.uptime==null}">disabled='disabled'</c:if>>修改分数
+					</button>
 				</td>
-				<input value="${filelist.hid }" id="hidValue" type="hidden">
 			</tr>
 		</c:forEach>
 	</table>
 </div>
 <script>
-
-	var hidValue = document.getElementById("hidValue").value;
 	
     function down(hid) {
         window.open("${basePath }downFile?hid=" + hid, "_blank");
@@ -70,25 +69,25 @@
     function downall() {
         window.open("${basePath }downAllFile", "_blank");
     }
+    
     function view(hid) {
 		window.open("${basePath }questAndReplyTeacher?hid=" + hid, "_blank");
 	}
     
-    $(function() {
-		$("#changefro").click(
-				function() {
-					$.get("${basePath}addTeacherScoring?fraction="
-							+ $("#fraction_input").val() + "&hid=" + hidValue,
-							function(data) {
-								console.log(data);
-								if (data == 'true') {
-									alert("增加成功");
-								} else {
-									alert("系统错误");
-								}
-							});
+    function changefro(hid) {
+		var value = true;
+		$.get("${basePath}addTeacherScoring?fraction="
+				+ $("input[name='username']").val() + "&hid=" + hid,
+				function(data) {
+					console.log(data);
+					if (data == 'true') {
+						alert("增加成功");
+					} else {
+						alert("系统错误");
+					}
 				});
-	});
+	}
+    
     
     $(function () {
         var data = [];
