@@ -245,7 +245,6 @@ tr>td>p {
 						file_oid = $(this).val();
 						$.get("${basePath }getDescByOid?oid=" + file_oid,
 								function(data) {
-									$("#des").html('');
 									$("#des").html(data.describtion);
 									console.log(data)
 								});
