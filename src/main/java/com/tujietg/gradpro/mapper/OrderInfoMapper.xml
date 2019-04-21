@@ -45,8 +45,9 @@
 
 	<select id="getOrderInfoEntityByOID" resultType="OrderInfo"
 		parameterType="int">
-		SELECT oid, oname, osubject, ostate, otime
-		FROM orderinfo
+		SELECT oid, oname, osubject, ostate, otime, answer
+		FROM
+		orderinfo
 		WHERE oid = #{oid}
 	</select>
 

@@ -15,10 +15,10 @@
 	<insert id="insertDataByEntity"
 		parameterType="com.tujietg.gradpro.pojo.History">
 		INSERT INTO history(hid, huid, hoid, type, filepath,
-		uptime, filesize)
+		uptime, filesize,fraction)
 		VALUES (#{hid}, #{huid}, #{hoid}, #{type},
 		#{filepath}, #{uptime},
-		#{filesize})
+		#{filesize},#{fraction})
 	</insert>
 
 	<select id="getUpListByUID" parameterType="String"

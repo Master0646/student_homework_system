@@ -21,6 +21,9 @@ import com.tujietg.gradpro.pojo.History;
 import com.tujietg.gradpro.pojo.OrderInfo;
 import com.tujietg.gradpro.pojo.User;
 import com.tujietg.gradpro.service.FileService;
+import com.tujietg.gradpro.util.CompileJava;
+import com.tujietg.gradpro.util.Constant;
+import com.tujietg.gradpro.util.FileClassLoader;
 import com.tujietg.gradpro.util.PropertiesUtil;
 
 /**
@@ -28,6 +31,9 @@ import com.tujietg.gradpro.util.PropertiesUtil;
  */
 @Service
 public class FileServiceImpl implements FileService {
+
+	// rootDir
+	private String rootDir = new Constant().rootDir;
 	@Resource
 	private OrderInfoMapper orderInfoDao;
 
@@ -141,9 +147,23 @@ public class FileServiceImpl implements FileService {
 		if ((this.findHuidExists(map)) != null) {
 			this.delEntityByHID(this.findHuidExists(map).getHid());
 		}
-		this.insertDataByEntity(history);
+
 		File newfile = new File(PropertiesUtil.getUpLoadFilePath() + newfilename);
 		file.transferTo(newfile);
+		File newfileCom = new File(PropertiesUtil.getUpLoadFilePath() + "task.java");
+		if (newfileCom.exists()) {
+			newfileCom.delete();
+		}
+		file.transferTo(newfileCom);
+		new CompileJava().CompileJavaMethod(newfilename);
+		Object a = new FileClassLoader(rootDir).getResult("task");
+		Object answer = orderInfo.getAnswer();
+		if (a.equals(answer)) {
+			history.setFraction(100);
+		} else {
+			history.setFraction(0);
+		}
+		this.insertDataByEntity(history);
 	}
 
 	@Override
