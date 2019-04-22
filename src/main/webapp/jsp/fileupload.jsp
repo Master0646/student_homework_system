@@ -224,7 +224,7 @@ tr>td>p {
 						file_subject = $(this).val();
 						$.get("${basePath }getOnameBysubject?subject="
 								+ file_subject, function(data) {
-							$("#oid_id").empty();
+							//	$("#oid_id").empty();
 							$("#upfilebutton_id").removeAttr("disabled");
 							$.each(data, function(key, value) {
 								if (key === 0) {

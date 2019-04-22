@@ -27,8 +27,8 @@
 				<td><p>${filelist.osubject }</p></td>
 				<td><p>${filelist.oname }</p></td>
 				<td><p>${filelist.uptime==null?"未上传":"已上传" }</p></td>
-				<td><p>机器打分：${filelist.fraction == null? 0 :filelist.fraction }</p>
-					修改分数：<input id="test" name="test" type="text" /></td>
+				<td><p>学生分数：${filelist.fraction == null? 0 :filelist.fraction }</p>
+					修改分数：<input name="test" type="text" /></td>
 				</td>
 				<td><p>
 						<fmt:formatDate value="${filelist.uptime }"
@@ -50,9 +50,9 @@
 					<button type="button" class="btn btn-primary"
 						onclick="view('${filelist.hid }')"
 						<c:if test="${filelist.uptime==null}">disabled='disabled'</c:if>>问答
-					</button>
-					<button type="button" class="btn btn-primary"
-						onclick="changefro('${filelist.hid}')"
+					</button> <!-- onclick="changefro('${filelist.hid}')" -->
+					<button type="button" class="btn btn-primary btnclick"
+						data-hid="${filelist.hid}"
 						<c:if test="${filelist.uptime==null}">disabled='disabled'</c:if>>修改分数
 					</button>
 				</td>
@@ -74,8 +74,28 @@
 		window.open("${basePath }questAndReplyTeacher?hid=" + hid, "_blank");
 	}
     
-    function changefro(hid) {
+    $('.btnclick').click(function(){
+    	var that=$(this);
+    	var hid=that.data('hid');
+    	var inputValue = that.parent().parent().find("input").val();
+    	console.log(inputValue);
+    	$.get("${basePath}addTeacherScoring?fraction="
+				+ inputValue  + "&hid=" + hid,
+				function(data) {
+					console.log(data);
+					if (data == 'true') {
+						alert("修改分数成功");
+					} else {
+						alert("系统错误");
+					}
+				}
+    	);
+    });
+    
+    /* function changefro(hid) {
 		var value = true;
+		var inputValue = this.parent().parent().find("input").val();
+		console.log(inputValue);
 		$.get("${basePath}addTeacherScoring?fraction="
 				+ $("input[name='username']").val() + "&hid=" + hid,
 				function(data) {
@@ -87,7 +107,7 @@
 					}
 				});
 	}
-    
+     */
     
     $(function () {
         var data = [];
