@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
  * Created by tujietg on Apr 21, 2019
  */
 public class CompileJava {
+	
 	public void CompileJavaMethod(String fileName) {
 		try {
 			Runtime rt = Runtime.getRuntime();
