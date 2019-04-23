@@ -23,7 +23,8 @@
 
 	<select id="getUpListByUID" parameterType="String"
 		resultType="History">
-		SELECT hid, huid, hoid, type, filepath, uptime, filesize
+		SELECT hid, huid, hoid, type, filepath, uptime,
+		filesize,fraction
 		FROM history
 		WHERE huid = #{huid}
 	</select>

@@ -123,6 +123,7 @@ public class FileServiceImpl implements FileService {
 				history.setOname(orderInfo.getOname());
 				// 设置文件扩展名
 				history.setFilepath(history.getFilepath().substring(history.getFilepath().lastIndexOf(".") + 1));
+				
 			}
 		}).collect(Collectors.toList());
 	}
