@@ -1831,8 +1831,8 @@ pre code {
 .container {
 	padding-right: 15px;
 	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
+	/* margin-right: auto;
+	margin-left: auto; */
 }
 
 @media ( min-width : 768px) {
@@ -1841,13 +1841,13 @@ pre code {
 	}
 }
 
-@media ( min-width : 992px) {
+@media ( min-width : 702px) {
 	.container {
-		width: 970px;
+		width: 700px;
 	}
 }
 
-@media ( min-width : 1200px) {
+@media ( min-width : 700px) {
 	.container {
 		width: 700px;
 	}

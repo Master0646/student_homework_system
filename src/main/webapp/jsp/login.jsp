@@ -33,11 +33,17 @@
 .col-md-6 {
 	margin-top: 1em;
 }
+
+.container1 {
+	width: 700px;
+	margin: 0 auto;
+	padding: 35px;
+}
 </style>
 </head>
 <body class="background">
 	<section>
-		<div class="container blur">
+		<div class="container1 blur">
 			<form class="form-signin" method="post" action="${basePath }login">
 				<h2 class="form-signin-heading">
 					请登录：

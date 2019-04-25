@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.shiro.SecurityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +38,7 @@ import com.tujietg.gradpro.pojo.History;
 import com.tujietg.gradpro.pojo.OrderInfo;
 import com.tujietg.gradpro.pojo.User;
 import com.tujietg.gradpro.service.FileService;
+import com.tujietg.gradpro.service.TaskNotHandService;
 import com.tujietg.gradpro.service.UserService;
 import com.tujietg.gradpro.util.PropertiesUtil;
 
@@ -56,6 +58,9 @@ public class FileAction {
 
 	@Resource
 	private FileService fileService;
+
+	@Autowired
+	TaskNotHandService taskNotHandService;
 
 	/**
 	 * 自定义类型转换器
@@ -85,10 +90,13 @@ public class FileAction {
 		if (firstLogin) {
 			return "jsp/firstpd.jsp";
 		}
+		List<String> notHandList = taskNotHandService.studentNotHand(user.getUid());
 		// 用户上传历史实体
 		List<History> userHistoryList = fileService.getUserHistoryByUserId(user.getUid());
 		// 下拉框数据
 		model.addAttribute("orderInfoList", fileService.getOrderInfoEntity());
+		// 用户数据
+		model.addAttribute("notHandList", notHandList);
 		// 用户数据
 		model.addAttribute("user", user);
 		// 用户上传的历史
