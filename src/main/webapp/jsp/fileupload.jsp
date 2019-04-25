@@ -64,13 +64,16 @@ tr>td>p {
 							<img src="${basePath }img/headdefault.jpg" alt="headImg"
 								class="img-circle" style="width: 30px"> <span>登录用户：${user.name }</span>
 						</div>
-						<p>
-							你的
-							<c:forEach items="${notHandList }" var="item">
-								${item }
-							</c:forEach>
-							科目作业还没有全部提交。
-						</p>
+						<c:if test="${not empty notHandList}">
+							<p>
+								你的
+								<c:forEach items="${notHandList }" var="item">
+									${item}
+								</c:forEach>
+							</p>
+						</c:if>
+						科目作业还没有全部提交。
+
 					</div>
 					<div class="collapse navbar-collapse navbar-right" id="bs-collapse">
 						<span><a href="${basePath }logout" class="btn btn-danger">退出登录</a></span>
