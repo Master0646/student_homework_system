@@ -70,9 +70,9 @@ tr>td>p {
 								<c:forEach items="${notHandList }" var="item">
 									${item}
 								</c:forEach>
-							</p>
+							</p>科目作业还没有全部提交。
 						</c:if>
-						科目作业还没有全部提交。
+
 
 					</div>
 					<div class="collapse navbar-collapse navbar-right" id="bs-collapse">
