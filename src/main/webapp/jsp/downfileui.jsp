@@ -27,7 +27,7 @@
 				<td><p>${filelist.osubject }</p></td>
 				<td><p>${filelist.oname }</p></td>
 				<td><p>${filelist.uptime==null?"未上传":"已上传" }</p></td>
-				<td><p>学生分数：${filelist.fraction == null? 0 :filelist.fraction }</p>
+				<td><p id='fraction'>学生分数：${filelist.fraction == null? 0 :filelist.fraction }</p>
 					修改分数：<input name="test" type="text" /></td>
 				</td>
 				<td><p>
@@ -78,12 +78,14 @@
     	var that=$(this);
     	var hid=that.data('hid');
     	var inputValue = that.parent().parent().find("input").val();
+    	
     	console.log(inputValue);
     	$.get("${basePath}addTeacherScoring?fraction="
 				+ inputValue  + "&hid=" + hid,
 				function(data) {
 					console.log(data);
 					if (data == 'true') {
+						that.parent().parent().find("#fraction").html('学生分数：'+ inputValue);
 						alert("修改分数成功");
 					} else {
 						alert("系统错误");

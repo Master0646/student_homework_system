@@ -68,9 +68,10 @@ tr>td>p {
 							<p>
 								你的
 								<c:forEach items="${notHandList }" var="item">
-									${item}
+									${item}、
 								</c:forEach>
-							</p>科目作业还没有全部提交。
+								科目作业还没有全部提交。
+							</p>
 						</c:if>
 
 
