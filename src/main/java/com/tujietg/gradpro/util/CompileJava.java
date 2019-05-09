@@ -14,9 +14,11 @@ public class CompileJava {
 	
 	public void CompileJavaMethod(String fileName) {
 		try {
+			// 获取一个线程，这个线程可以和操作系统的命令行进行交互。
 			Runtime rt = Runtime.getRuntime();
 			// windowscd /Users/tujietg/Desktop/ && java HelloWorld
 			String command = "javac " + "Task.java";
+			// 调用命令行执行命令
 			Process proc = rt.exec(command, null, new File(new Constant().rootDir));
 			InputStream stderr = proc.getErrorStream();
 			InputStreamReader isr = new InputStreamReader(stderr);

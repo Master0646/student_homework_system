@@ -52,9 +52,11 @@ public class FileClassLoader extends ClassLoader {
 		String file = "Task";
 		try {
 			// 传入class文件的全限定名
+			// 利用了反射加载的是 指定路径上的class 文件
 			Class<?> clazz = loader.loadClass(file);
 			Object obj = clazz.newInstance();
 			Method method = clazz.getDeclaredMethod("result", null);
+			// 获取方法返回的结果
 			a = (Object) method.invoke(obj, null);
 			System.out.println(a);
 		} catch (Exception e) {

@@ -43,6 +43,45 @@ tr>td>p {
 	margin-top: 8px;
 	margin-bottom: 8px;
 }
+
+.isnavfa {
+	position: relative
+}
+
+.isNav {
+	position: absolute;
+	left: 0;
+	width: 124px;
+	height: 600px;
+	border: 1px solid #dcdcdc;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-moz-box-orient: vertical;
+	-moz-box-direction: normal;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	background-color: #dcdcdc;
+}
+
+.isNav span {
+	display: block;
+	width: 100%;
+	height: 55px;
+	color: #000;
+	text-align: center;
+	font-size: 15px;
+	line-height: 55px;
+	color: #ffffff;
+}
+
+.isNav .item:hover {
+	background: darkcyan;
+}
 </style>
 </head>
 <body>
@@ -71,11 +110,20 @@ tr>td>p {
 				</div>
 			</div>
 		</nav>
+		<div id="isNav" class="isNav">
+			<span>导航栏</span> <span class="item" id="chooseFile">科目和批次管理</span> <span
+				class="item" id="history">下载已上传文件</span> <span class="item">
+				<a href="${basePath }cpasswd"><font color="white">修改密码</font></a>
+			</span> <span class="item"> <a href="${basePath }logout"><font
+					color="white">退出登录</font></a></span>
+
+		</div>
 	</header>
 	<!--/头部-->
 
 	<section class="hidden">
-		<div class="container">
+
+		<div class="container" id="ischooseFile">
 			<h1>角色权限与用户管理</h1>
 			<div class="table-responsive">
 				<table class="table table-hover">
@@ -115,7 +163,7 @@ tr>td>p {
 
 	<!--添加学科或者次序-->
 	<section>
-		<div class="container">
+		<div class="container" id="ischooseFile01">
 			<h1>科目和批次管理</h1>
 			<button type="button" id="upfilebutton_id" class="btn btn-primary"
 				data-toggle="modal" data-remote="${basePath }jsp/addsubjectui.jsp"
@@ -133,7 +181,7 @@ tr>td>p {
 
 	<!--内容-->
 	<section>
-		<div class="container">
+		<div class="container" style="display: none" id="ishistory">
 			<div>
 				<h1>下载已上传的文件</h1>
 				<label for="subject_ID"> <select name="subject"
@@ -171,6 +219,19 @@ tr>td>p {
 	<script src="${basePath }weblib/bootstrap/js/bootstrap.min.js"></script>
 	<script src="${basePath }js/base.js"></script>
 	<script>
+		$("#chooseFile").click(function() {
+
+			$('#ischooseFile01').show();
+			$('#ishistory').hide();
+
+		});
+
+		$("#history").click(function() {
+
+			$('#ischooseFile01').hide();
+			$('#ishistory').show();
+		});
+
 		function add() {
 			var desc = $("#describtion").val();
 			var ans = $("#answer").val();
@@ -189,7 +250,6 @@ tr>td>p {
 			});
 		}
 
-		
 		function changeState(oid, ostate) {
 			var value = true;
 			if (ostate) {

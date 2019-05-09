@@ -44,11 +44,56 @@ tr>td>p {
 	margin-top: 8px;
 	margin-bottom: 8px;
 }
+
+.isnavfa {
+	position: relative
+}
+
+.isNav {
+	position: absolute;
+	left: 0;
+	bottom: -600px;
+	width: 124px;
+	height: 600px;
+	border: 1px solid #dcdcdc;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-moz-box-orient: vertical;
+	-moz-box-direction: normal;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	background-color: #dcdcdc;
+}
+
+.isNav span {
+	display: block;
+	width: 100%;
+	height: 55px;
+	color: #000;
+	text-align: center;
+	font-size: 15px;
+	line-height: 55px;
+	color: #ffffff;
+}
+
+.isNav .item:hover {
+	background: darkcyan;
+}
+
+.nav {
+	background-color: #F5F5DC;
+}
 </style>
 </head>
 <body>
+
 	<!--头部-->
-	<header>
+	<header class="isnavfa">
 		<nav class="navbar navbar-default">
 			<div class="container">
 				<div class="container-fluid">
@@ -73,8 +118,6 @@ tr>td>p {
 								科目作业还没有全部提交。
 							</p>
 						</c:if>
-
-
 					</div>
 					<div class="collapse navbar-collapse navbar-right" id="bs-collapse">
 						<span><a href="${basePath }logout" class="btn btn-danger">退出登录</a></span>
@@ -83,11 +126,22 @@ tr>td>p {
 				</div>
 			</div>
 		</nav>
+		<div id="isNav" class="isNav">
+			<span>导航栏</span> <span class="item" id="chooseFile">选择文件</span> <span
+				class="item" id="history">历史文件</span> <span class="item"> <a
+				href="${basePath }cpasswd"><font color="white">修改密码</font></a></span> <span
+				class="item"> <a href="${basePath }logout"><font
+					color="white">退出登录</font></a></span>
+
+		</div>
+
 	</header>
 	<!--/头部-->
 	<!--内容-->
+
 	<section>
-		<div class="container">
+
+		<div class="container isnavfa" id="ischooseFile">
 			<form action="" method="post" enctype="multipart/form-data">
 				<div>
 					<h1>请选择文件归类</h1>
@@ -128,12 +182,14 @@ tr>td>p {
 				</div>
 			</form>
 			<p></p>
+
+
 		</div>
 	</section>
 	<!--/内容-->
 
 	<!--历史-->
-	<section>
+	<section style="display: none" id="ishistory">
 		<div class="container">
 			<hr>
 			<div class="history">
@@ -213,6 +269,19 @@ tr>td>p {
 	<script src="${basePath }weblib/bootstrap/js/bootstrap.min.js"></script>
 	<script src="${basePath }js/base.js"></script>
 	<script>
+		$("#chooseFile").click(function() {
+
+			$('#ischooseFile').show();
+			$('#ishistory').hide();
+
+		});
+
+		$("#history").click(function() {
+
+			$('#ischooseFile').hide();
+			$('#ishistory').show();
+		});
+
 		var hid = "";
 		var a = '';
 		function del_button(hids) {
