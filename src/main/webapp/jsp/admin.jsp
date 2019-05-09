@@ -82,6 +82,12 @@ tr>td>p {
 .isNav .item:hover {
 	background: darkcyan;
 }
+
+.container1 {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 35px;
+}
 </style>
 </head>
 <body>
@@ -111,11 +117,12 @@ tr>td>p {
 			</div>
 		</nav>
 		<div id="isNav" class="isNav">
-			<span>导航栏</span> <span class="item" id="chooseFile">科目和批次管理</span> <span
-				class="item" id="history">下载已上传文件</span> <span class="item">
-				<a href="${basePath }cpasswd"><font color="white">修改密码</font></a>
+			<span>导航栏</span> <span class="item" id="chooseFile"><strong>科目和批次管理</strong></span>
+			<span class="item" id="history"><strong>下载已上传文件</strong></span> <span
+				class="item"> <a href="${basePath }cpasswd"><font
+					color="white"><strong>修改密码</strong></font></a>
 			</span> <span class="item"> <a href="${basePath }logout"><font
-					color="white">退出登录</font></a></span>
+					color="white"><strong>退出登录</strong></font></a></span>
 
 		</div>
 	</header>
@@ -123,7 +130,7 @@ tr>td>p {
 
 	<section class="hidden">
 
-		<div class="container" id="ischooseFile">
+		<div class="container1" id="ischooseFile">
 			<h1>角色权限与用户管理</h1>
 			<div class="table-responsive">
 				<table class="table table-hover">
@@ -163,7 +170,7 @@ tr>td>p {
 
 	<!--添加学科或者次序-->
 	<section>
-		<div class="container" id="ischooseFile01">
+		<div class="container1" id="ischooseFile01">
 			<h1>科目和批次管理</h1>
 			<button type="button" id="upfilebutton_id" class="btn btn-primary"
 				data-toggle="modal" data-remote="${basePath }jsp/addsubjectui.jsp"
@@ -181,7 +188,7 @@ tr>td>p {
 
 	<!--内容-->
 	<section>
-		<div class="container" style="display: none" id="ishistory">
+		<div class="container1" style="display: none" id="ishistory">
 			<div>
 				<h1>下载已上传的文件</h1>
 				<label for="subject_ID"> <select name="subject"
@@ -287,7 +294,7 @@ tr>td>p {
 								}
 								$("#oid_id").append(
 										"<option value=" + value.oid + ">"
-												+ value.oname + "</option>");
+												+ value.oname + "_$tag____");
 							});
 						});
 					});

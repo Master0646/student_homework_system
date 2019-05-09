@@ -88,6 +88,12 @@ tr>td>p {
 .nav {
 	background-color: #F5F5DC;
 }
+
+.container1 {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 35px;
+}
 </style>
 </head>
 <body>
@@ -127,11 +133,12 @@ tr>td>p {
 			</div>
 		</nav>
 		<div id="isNav" class="isNav">
-			<span>导航栏</span> <span class="item" id="chooseFile">选择文件</span> <span
-				class="item" id="history">历史文件</span> <span class="item"> <a
-				href="${basePath }cpasswd"><font color="white">修改密码</font></a></span> <span
-				class="item"> <a href="${basePath }logout"><font
-					color="white">退出登录</font></a></span>
+			<span><strong>导航栏</strong></span> <span class="item" id="chooseFile"><strong>选择文件</strong></span>
+			<span class="item" id="history"><strong>历史文件</strong></span> <span
+				class="item"> <a href="${basePath }cpasswd"><font
+					color="white"><strong>修改密码</strong></font></a>
+			</span> <span class="item"> <a href="${basePath }logout"><font
+					color="white"><strong>退出登录</strong></font></a></span>
 
 		</div>
 
@@ -141,7 +148,7 @@ tr>td>p {
 
 	<section>
 
-		<div class="container isnavfa" id="ischooseFile">
+		<div class="container1" id="ischooseFile">
 			<form action="" method="post" enctype="multipart/form-data">
 				<div>
 					<h1>请选择文件归类</h1>
@@ -190,7 +197,7 @@ tr>td>p {
 
 	<!--历史-->
 	<section style="display: none" id="ishistory">
-		<div class="container">
+		<div class="container1">
 			<hr>
 			<div class="history">
 				<p>上传文件历史记录</p>
