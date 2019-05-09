@@ -86,7 +86,7 @@ tr>td>p {
 }
 
 .nav {
-	background-color: #F5F5DC;
+	background-color: #928C8B;
 }
 
 .container1 {

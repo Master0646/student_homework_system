@@ -194,8 +194,8 @@ tr>td>p {
 				<label for="subject_ID"> <select name="subject"
 					id="subject_ID" class="form-control">
 						<option value="none">请选择科目...</option>
-						<c:forEach items="${orderInfoList }" var="orderInfo">
-							<option value="${orderInfo }">${orderInfo }</option>
+						<c:forEach items="${orderInfoList}" var="orderInfo">
+							<option value="${orderInfo}">${orderInfo}</option>
 						</c:forEach>
 				</select>
 				</label> <label for="oid_id"> <select name="oid" id="oid_id"
@@ -294,7 +294,7 @@ tr>td>p {
 								}
 								$("#oid_id").append(
 										"<option value=" + value.oid + ">"
-												+ value.oname + "_$tag____");
+												+ value.oname);
 							});
 						});
 					});
