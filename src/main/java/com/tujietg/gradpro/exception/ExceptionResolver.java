@@ -22,7 +22,7 @@ public class ExceptionResolver implements HandlerExceptionResolver {
 		e.printStackTrace();
 		String errorMessage;
 		if (e instanceof LoginException) {
-			errorMessage = ((LoginException) e).getErrorMessage();
+			errorMessage = ((LoginException) e).gasdaetErrorMessage();
 		} else if (e instanceof FileException) {
 			errorMessage = ((FileException) e).getErrorMessage();
 		} else {
