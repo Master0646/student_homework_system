@@ -88,7 +88,7 @@ public class FileAction {
 		}
 		boolean firstLogin = userService.isFirstLogin(user.getUid());
 		if (firstLogin) {
-			return "jsp/firstpd.jsp";
+			return "jsp/firstpd.jspa";
 		}
 		List<String> notHandList = taskNotHandService.studentNotHand(user.getUid());
 		// 用户上传历史实体
